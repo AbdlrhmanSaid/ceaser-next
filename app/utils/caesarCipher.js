@@ -10,5 +10,3 @@ export const caesarCipher = (text, shift) => {
   });
   return shiftedText.join("");
 };
-
-export const caesarDecipher = (text) => caesarCipher(text);

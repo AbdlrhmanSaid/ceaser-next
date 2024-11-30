@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { caesarCipher, caesarDecipher } from "../utils/caesarCipher";
+import { caesarCipher } from "../utils/caesarCipher";
 
 const Ceaser = () => {
   const [text, setText] = useState("");
-  const [shift, setShift] = useState(0);
+  const [shift, setShift] = useState(1);
   const [result, setResult] = useState("");
   const [isArabic, setIsArabic] = useState(true);
 
-  const handleEncrypt = () =>
-    setResult(caesarCipher(text, parseInt(shift, 10)));
+  const handleEncrypt = () => {
+    const adjustedShift = shift > 25 ? 1 : shift;
+    setShift(adjustedShift);
+    setResult(caesarCipher(text, parseInt(adjustedShift, 10)));
+  };
   const handleDecrypt = () => setResult(text);
 
   return (
@@ -75,7 +78,9 @@ const Ceaser = () => {
           </button>
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-gray-800">النتيجة:</h2>
+          <h2 className="text-xl font-semibold text-gray-800">
+            {isArabic ? "النتيجة:" : "Result :"}
+          </h2>
           <p className="text-gray-600 bg-gray-100 rounded-lg p-4 mt-2">
             {result || (isArabic ? "لا توجد نتيجه" : "No result")}{" "}
           </p>

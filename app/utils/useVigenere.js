@@ -25,7 +25,15 @@ const useVigenere = () => {
       .join("");
     setCiphertext(result);
   };
-  return { setPlaintext, setKey, ciphertext, encrypt, plaintext, key };
+  return {
+    setPlaintext,
+    setKey,
+    ciphertext,
+    encrypt,
+    plaintext,
+    key,
+    setCiphertext,
+  };
 };
 
 export default useVigenere;

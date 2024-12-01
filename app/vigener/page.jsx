@@ -3,9 +3,18 @@ import useVigenere from "../utils/useVigenere";
 import { useState } from "react";
 
 const VigenereCipher = () => {
-  const { setPlaintext, setKey, ciphertext, encrypt, plaintext, key } =
-    useVigenere();
+  const {
+    setPlaintext,
+    setKey,
+    ciphertext,
+    encrypt,
+    plaintext,
+    key,
+    setCiphertext,
+  } = useVigenere();
   const [isArabic, setIsArabic] = useState(true);
+
+  const handleDecrypt = () => setCiphertext(plaintext);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
@@ -58,12 +67,21 @@ const VigenereCipher = () => {
             />
           </div>
         </div>
-        <button
-          onClick={encrypt}
-          className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
-        >
-          {isArabic ? "تشفير" : "Encrypt"}
-        </button>
+        <div className="flex justify-between space-x-4">
+          <button
+            onClick={encrypt}
+            className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
+          >
+            {isArabic ? "تشفير" : "Encryption"}
+          </button>
+          <button
+            onClick={handleDecrypt}
+            className="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none"
+          >
+            {isArabic ? "فك التشفير" : "Decryption"}
+          </button>
+        </div>
+
         <div>
           <h2 className="text-xl font-semibold text-gray-800">
             {isArabic ? "النص المشفر:" : "Ciphertext:"}

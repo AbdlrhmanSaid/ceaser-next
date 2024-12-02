@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { caesarCipher } from "../utils/caesarCipher";
+import Language from "./Language";
 
 const Ceaser = () => {
   const [text, setText] = useState("");
@@ -18,24 +19,7 @@ const Ceaser = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gray-100">
-      <div className="flex space-x-4 p-4 justify-center items-center">
-        <button
-          className={`py-2 px-4 rounded-lg ${
-            isArabic ? "bg-blue-600" : "bg-gray-400"
-          } text-white hover:bg-blue-700`}
-          onClick={() => setIsArabic(true)}
-        >
-          العربية
-        </button>
-        <button
-          className={`py-2 px-4 rounded-lg ${
-            !isArabic ? "bg-blue-600" : "bg-gray-400"
-          } text-white hover:bg-blue-700`}
-          onClick={() => setIsArabic(false)}
-        >
-          English
-        </button>
-      </div>
+      <Language isArabic={isArabic} setIsArabic={setIsArabic} />
 
       <div className="max-w-lg w-full bg-white rounded-lg shadow-md p-6 space-y-6">
         <h1 className="text-2xl font-bold text-center text-gray-800">

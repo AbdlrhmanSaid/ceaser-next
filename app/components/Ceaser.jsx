@@ -11,7 +11,7 @@ const Ceaser = () => {
   const [isArabic, setIsArabic] = useState(true);
 
   const handleEncrypt = () => {
-    const adjustedShift = shift > 25 ? 1 : shift;
+    const adjustedShift = shift > 25 ? 1 : shift || shift === 25 ? 0 : shift;
     setShift(adjustedShift);
     setResult(caesarCipher(text, parseInt(adjustedShift, 10)));
   };

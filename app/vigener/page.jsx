@@ -1,6 +1,5 @@
 "use client";
 import useVigenere from "../utils/useVigenere";
-import { useState } from "react";
 import Language from "../components/Language";
 
 const VigenereCipher = () => {
@@ -11,16 +10,14 @@ const VigenereCipher = () => {
     ciphertext,
     plaintext,
     key,
-    setCiphertext,
+    isArabic,
+    setIsArabic,
+    handleDecrypt,
   } = useVigenere();
-  const [isArabic, setIsArabic] = useState(true);
-
-  const handleDecrypt = () => setCiphertext(plaintext);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <Language isArabic={isArabic} setIsArabic={setIsArabic} />
-
       <div className="max-w-lg w-full bg-white rounded-lg shadow-md p-6 space-y-6">
         <h1 className="text-2xl font-bold text-center text-gray-800">
           Vigenère Cipher
@@ -65,7 +62,6 @@ const VigenereCipher = () => {
             {isArabic ? "فك التشفير" : "Decryption"}
           </button>
         </div>
-
         <div>
           <h2 className="text-xl font-semibold text-gray-800">
             {isArabic ? "النص المشفر:" : "Ciphertext:"}

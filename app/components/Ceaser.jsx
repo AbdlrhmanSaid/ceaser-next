@@ -1,21 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { caesarCipher } from "../utils/caesarCipher";
 import Language from "./Language";
+import useCaesarCipher from "../utils/useCaesarCipher";
 
 const Ceaser = () => {
-  const [text, setText] = useState("");
-  const [shift, setShift] = useState(1);
-  const [result, setResult] = useState("");
-  const [isArabic, setIsArabic] = useState(true);
-
-  const handleEncrypt = () => {
-    const adjustedShift = shift > 25 ? 1 : shift || shift === 25 ? 0 : shift;
-    setShift(adjustedShift);
-    setResult(caesarCipher(text, parseInt(adjustedShift, 10)));
-  };
-  const handleDecrypt = () => setResult(text);
+  const {
+    text,
+    setText,
+    shift,
+    setShift,
+    result,
+    isArabic,
+    setIsArabic,
+    handleEncrypt,
+    handleDecrypt,
+  } = useCaesarCipher();
 
   return (
     <div className="min-h-screen flex items-center justify-center flex-col bg-gray-100">

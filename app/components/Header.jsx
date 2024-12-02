@@ -4,23 +4,35 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
-  const [isCeaser, setIsCeaser] = useState(true);
+  const [isSelected, setIsSelected] = useState(false);
+
+  const navLinks = [
+    {
+      title: "Caesar",
+      to: "/",
+    },
+    {
+      title: "Vigenère ",
+      to: "/vigener",
+    },
+    {
+      title: "PlayFair",
+      to: "/playfair",
+    },
+  ];
+
   return (
     <div className="bg-gray-800 text-white py-4 text-center flex items-center justify-center px-4">
-      <Link
-        className={`me-2 ${isCeaser && "underline"} `}
-        href={"/"}
-        onClick={() => setIsCeaser(true)}
-      >
-        Caesar
-      </Link>
-      <Link
-        className={`${!isCeaser && "underline"} `}
-        href={"/vigener"}
-        onClick={() => setIsCeaser(false)}
-      >
-        Vigener
-      </Link>
+      {navLinks.map((navLink) => (
+        <Link
+          key={navLink.to}
+          href={navLink.to}
+          className={`me-2 ${isSelected === navLink.to ? "underline" : ""}`}
+          onClick={() => setIsSelected(navLink.to)}
+        >
+          <div>{navLink.title}</div>
+        </Link>
+      ))}
     </div>
   );
 };

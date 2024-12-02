@@ -7,6 +7,8 @@ const useVigenere = () => {
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
 
+  const [isArabic, setIsArabic] = useState(true);
+
   const encrypt = () => {
     let extendedKey = key
       .toUpperCase()
@@ -25,6 +27,9 @@ const useVigenere = () => {
       .join("");
     setCiphertext(result);
   };
+
+  const handleDecrypt = () => setCiphertext(plaintext);
+
   return {
     setPlaintext,
     setKey,
@@ -33,6 +38,9 @@ const useVigenere = () => {
     plaintext,
     key,
     setCiphertext,
+    isArabic,
+    setIsArabic,
+    handleDecrypt,
   };
 };
 

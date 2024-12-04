@@ -8,8 +8,12 @@ const Header = () => {
 
   const navLinks = [
     {
-      title: "Caesar",
+      title: "Home",
       to: "/",
+    },
+    {
+      title: "Caesar",
+      to: "/ceaser",
     },
     {
       title: "Vigenère ",
@@ -22,7 +26,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="bg-gray-800 text-white py-4 text-center flex items-center justify-center px-4">
+    <div className="bg-gray-800 text-white py-4 text-center flex items-center justify-center px-4 fixed w-full">
       {navLinks.map((navLink) => (
         <Link
           key={navLink.to}

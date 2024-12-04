@@ -1,8 +1,8 @@
-import Ceaser from "./components/Ceaser";
+import CipherDescription from "./components/MainPage";
 export default function Home() {
   return (
     <main>
-      <Ceaser />
+      <CipherDescription />
     </main>
   );
 }

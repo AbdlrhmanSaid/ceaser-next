@@ -1,26 +1,27 @@
 "use client";
-import usePlayFair from "../utils/usePlayFair";
+
 import Language from "../components/Language";
+import useCaesarCipher from "../utils/useCaesarCipher";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
-export default function PlayfairCipher() {
+const Ceaser = () => {
   const {
-    key,
-    setKey,
-    plainText,
-    setPlainText,
-    cipherText,
-    handleEncrypt,
-    handledecrypt,
+    text,
+    setText,
+    shift,
+    setShift,
+    result,
     isArabic,
     setIsArabic,
-  } = usePlayFair();
+    handleEncrypt,
+    handleDecrypt,
+  } = useCaesarCipher();
 
   return (
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Playfair Cipher</title>
+          <title>Caesar Cipher</title>
           <link rel="icon" href="/logo.webp" />
           <meta name="description" content="A cybersecurity website." />
           <meta name="keywords" content="React, application, encryption" />
@@ -31,38 +32,31 @@ export default function PlayfairCipher() {
 
         <div className="max-w-lg w-full bg-white rounded-lg shadow-md p-6 space-y-6">
           <h1 className="text-2xl font-bold text-center text-gray-800">
-            Playfair Cipher
+            Caesar Cipher
           </h1>
           <div className="space-y-4">
             <div>
-              <label
-                htmlFor="key"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                {isArabic ? "المفتاح" : "Key"}
+              <label className="block text-gray-700 font-medium mb-2">
+                {isArabic ? " النص:" : "Text :"}
               </label>
               <input
-                id="key"
                 type="text"
-                value={key}
-                onChange={(e) => setKey(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder={isArabic ? "ادخل المفتاح" : "Enter your key"}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={isArabic ? "ادخل النص هنا" : "Enter Text here"}
               />
             </div>
             <div>
-              <label
-                htmlFor="plainText"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                {isArabic ? "النص" : "plainText"}
+              <label className="block text-gray-700 font-medium mb-2">
+                {isArabic ? "الإزاحة" : "Shift"}
               </label>
-              <textarea
-                id="plainText"
-                value={plainText}
-                onChange={(e) => setPlainText(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder={isArabic ? "ادخل النص" : "Enter your plainText"}
+              <input
+                type="number"
+                value={shift}
+                onChange={(e) => setShift(e.target.value)}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={isArabic ? "ادخل الإزاحة هنا" : "enter Shift here"}
               />
             </div>
           </div>
@@ -74,23 +68,24 @@ export default function PlayfairCipher() {
               {isArabic ? "تشفير" : "Encryption"}
             </button>
             <button
-              onClick={handledecrypt}
+              onClick={handleDecrypt}
               className="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none"
             >
               {isArabic ? "فك التشفير" : "Decryption"}
             </button>
           </div>
-
           <div>
             <h2 className="text-xl font-semibold text-gray-800">
               {isArabic ? "النتيجة:" : "Result :"}
             </h2>
             <p className="text-gray-600 bg-gray-100 rounded-lg p-4 mt-2">
-              {cipherText || (isArabic ? "لا توجد نتيجه" : "No result")}{" "}
+              {result || (isArabic ? "لا توجد نتيجه" : "No result")}{" "}
             </p>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Ceaser;

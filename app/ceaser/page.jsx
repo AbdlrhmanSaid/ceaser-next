@@ -2,7 +2,6 @@
 
 import Language from "../components/Language";
 import useCaesarCipher from "../utils/useCaesarCipher";
-import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const Ceaser = () => {
   const {
@@ -19,14 +18,6 @@ const Ceaser = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Caesar Cipher</title>
-          <link rel="icon" href="/logo.webp" />
-          <meta name="description" content="A cybersecurity website." />
-          <meta name="keywords" content="React, application, encryption" />
-        </Helmet>
-      </HelmetProvider>
       <div className="min-h-screen flex items-center justify-center flex-col bg-gray-100 py-14">
         <Language isArabic={isArabic} setIsArabic={setIsArabic} />
 

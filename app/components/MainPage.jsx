@@ -1,21 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Language from "./Language";
-import { HelmetProvider, Helmet } from "react-helmet-async";
 
 export default function CipherDescription() {
   const [isArabic, setIsArabic] = useState(true);
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Cyber Security</title>
-          <link rel="icon" href="/logo.webp" />
-          <meta name="description" content="A cybersecurity website." />
-          <meta name="keywords" content="React, application, encryption" />
-        </Helmet>
-      </HelmetProvider>
       <div className="flex flex-col items-center p-6  space-y-6  bg-gray-100 pt-14">
         <Language isArabic={isArabic} setIsArabic={setIsArabic} />
 

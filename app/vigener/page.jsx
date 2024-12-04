@@ -1,7 +1,6 @@
 "use client";
 import useVigenere from "../utils/useVigenere";
 import Language from "../components/Language";
-import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const VigenereCipher = () => {
   const {
@@ -18,14 +17,6 @@ const VigenereCipher = () => {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Vigenere Cipher</title>
-          <link rel="icon" href="/logo.webp" />
-          <meta name="description" content="A cybersecurity website." />
-          <meta name="keywords" content="React, application, encryption" />
-        </Helmet>
-      </HelmetProvider>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 py-14">
         <Language isArabic={isArabic} setIsArabic={setIsArabic} />
         <div className="max-w-lg w-full bg-white rounded-lg shadow-md p-6 space-y-6">

@@ -1,7 +1,6 @@
 "use client";
 import usePlayFair from "../utils/usePlayFair";
 import Language from "../components/Language";
-import { HelmetProvider, Helmet } from "react-helmet-async";
 
 export default function PlayfairCipher() {
   const {
@@ -18,14 +17,6 @@ export default function PlayfairCipher() {
 
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>Playfair Cipher</title>
-          <link rel="icon" href="/logo.webp" />
-          <meta name="description" content="A cybersecurity website." />
-          <meta name="keywords" content="React, application, encryption" />
-        </Helmet>
-      </HelmetProvider>
       <div className="min-h-screen flex items-center justify-center flex-col bg-gray-100 py-14">
         <Language isArabic={isArabic} setIsArabic={setIsArabic} />
 

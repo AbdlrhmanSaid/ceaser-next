@@ -7,7 +7,7 @@ const useVigenere = () => {
   const [key, setKey] = useState("");
   const [ciphertext, setCiphertext] = useState("");
 
-  const [isArabic, setIsArabic] = useState(true);
+  const [isArabic, setIsArabic] = useState(false);
 
   const encrypt = () => {
     let extendedKey = key

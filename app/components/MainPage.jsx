@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Language from "./Language";
 
 export default function CipherDescription() {
-  const [isArabic, setIsArabic] = useState(true);
+  const [isArabic, setIsArabic] = useState(false);
 
   return (
     <>

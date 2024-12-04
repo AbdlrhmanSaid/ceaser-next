@@ -5,7 +5,7 @@ const useCaesarCipher = () => {
   const [text, setText] = useState("");
   const [shift, setShift] = useState(1);
   const [result, setResult] = useState("");
-  const [isArabic, setIsArabic] = useState(true);
+  const [isArabic, setIsArabic] = useState(false);
 
   const caesarCipher = (text, shift) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

@@ -13,6 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>{metadata.title}</title>
+        <link rel="icon" href="/logo.webp" />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <Header />
         {children}

@@ -5,7 +5,7 @@ const usePlayFair = () => {
   const [key, setKey] = useState("");
   const [plainText, setPlainText] = useState("");
   const [cipherText, setCipherText] = useState("");
-  const [isArabic, setIsArabic] = useState(true);
+  const [isArabic, setIsArabic] = useState(false);
 
   const generateMatrix = (key) => {
     const alphabet = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
